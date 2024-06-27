@@ -5,11 +5,9 @@ import SideBar from "@/components/JobsInternshipMentorAide/SideBar";
 import { Button } from "@/components/ui/button";
 import { data } from "@/lib/data";
 import { Job } from "@/lib/types/job";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const DetailsPage = () => {
-  const searchParams = useSearchParams();
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -28,22 +26,6 @@ const DetailsPage = () => {
       mediaQuerySmall.removeListener(handleResize);
     };
   }, []);
-
-  // useEffect(() => {
-  //   const type = searchParams.get("type");
-
-  //   if (type) {
-  //     const jobs = data.filter(
-  //       (job) => job.type.toLowerCase() === type.toLowerCase()
-  //     );
-  //     setFilteredJobs(jobs);
-  //     if (jobs.length > 0) {
-  //       setSelectedJob(jobs[0]);
-  //     }
-  //   } else {
-  //     setFilteredJobs([]);
-  //   }
-  // }, [searchParams]);
 
   const handleJobSelect = (job: Job) => {
     setSelectedJob(job);
