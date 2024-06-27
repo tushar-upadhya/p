@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply leading-[normal] m-0;
+}
+
+*,
+::before,
+::after {
+  border-width: 0;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@layer components {
+  .custom-hover-effect {
+    @apply shadow-custom-md transition-custom-all duration-300 ease-custom-cubic;
+  }
+
+  .custom-hover-effect:hover {
+    @apply -translate-y-custom-hover shadow-custom-lg border-b-custom-4;
+  }
+}
